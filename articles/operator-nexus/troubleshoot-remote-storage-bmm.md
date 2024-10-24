@@ -12,4 +12,4 @@ remote storage:
 ## Raising A Ticket For Storage BMM Health Issues
 If the BMM is unhealthy due to issues with remote storage, a ticket will need to be raised. Please
 raise a ticket containing the cluster name, BMM name, the "Availability Impacting Reason", and the
-fact that the issue is in remote storage. This will lead to faster triage sof your ticket. 
+fact that the issue is in remote storage. This will lead to faster triage of your ticket. 

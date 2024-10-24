@@ -37,8 +37,9 @@ StorageApplianceAlerts
 >You must have your Storage Appliance set up to send logs to your LAW by adding a diagnostic setting.
 
 Once you have this information, you should be able to tell if you can fix the issue yourself, or if
-you need to raise a ticket with your Storage Appliance vendor or with us (see below section for
-instructions on raising a ticket with us).
+you need to raise a ticket with your Storage Appliance vendor or with us. If you need to raise a 
+ticket with us, please include the Storage Appliance name and "Availability Impacting Reason" for
+quicker issue triage. 
 
 ## Latency
 This will have an "Availability Impacting Reason" of:
@@ -53,7 +54,7 @@ Latency issues could be caused by an issue with the appliance, or high load. Fir
 load by navigating to the Storage Appliance on the portal, and viewing the
 `Nexus Storage Array Performance Throughput Iops (Avg)` metric, and the `Nexus Storage Array Latency`
 metric on the same chart, starting from shortly before the health event appeared. You should be able
-to see from this chart whether high load is the course. If so, reducing the load will resolve the
+to see from this chart whether high load is the cause. If so, reducing the load will resolve the
 health event.
 
 If you have ruled out high load, you should raise a ticket with your Storage Appliance vendor.
@@ -61,12 +62,12 @@ If you have ruled out high load, you should raise a ticket with your Storage App
 ## Hardware Health
 This will have an "Availability Impacting Reason" of:
 - `SAHardwareDegraded`, which means at least one hardware component is self-reporting as unhealthy.
-- `SAHardwareControllersUnhealthy`, which means all controllers are self-reporting as unhealthy. This
-could cause all storage control plane operations to fail.
-- `SAHardwareDriveBaysUnhealthy`, which means all drive bays are self-reporting as unhealthy. This
-could cause all storage data plane operations to fail.
-- `SAHardwareNVRAMBaysUnhealthy`, which means all NVRAM bays as self-reporting as unhealthy. This
-could cause all storage data plane operations to fail.
+- `SAHardwareControllersUnhealthy`, which means all controllers are self-reporting as unhealthy or
+off. This could cause all storage control plane operations to fail.
+- `SAHardwareDriveBaysUnhealthy`, which means all drive bays are self-reporting as unhealthy or off.
+This could cause all storage data plane operations to fail.
+- `SAHardwareNVRAMBaysUnhealthy`, which means all NVRAM bays as self-reporting as unhealthy or off.
+This could cause all storage data plane operations to fail.
 
 If another cluster is available, and you see one of the 3 "Availability Impacting Reason"s which end
 with "Unhealthy", you should consider moving mission critical workloads to this alternative cluster
@@ -85,7 +86,7 @@ Appliance vendor.
 This will have an "Availability Impacting Reason" of:
 - `StorageApplianceNetworkErrorsDegraded`, which means the average rate of network interface errors
 on one or more interfaces has exceeded 100/s, and is increasing with time. This implies an issue with
-the network interface(s)
+the network interface(s).
 
 To determine the unhealthy network interface(s), navigate to the Storage Appliance in the portal, and
 look at the `Nexus Storage Network Interface Performance Errors` metric series, and split it by
